@@ -14,7 +14,7 @@ public class Fraction {
         }
         int gcd = myGcd(num, denom);
         setNumerator(num / gcd);
-        setDenominator(num / gcd);
+        setDenominator(denom / gcd);
     }
 
     @Override
@@ -62,6 +62,7 @@ public class Fraction {
 
         int num = this.getNumerator() * frac.getNumerator();
         int denom = this.getDenominator() * frac.getDenominator();
+        
         return new Fraction(num, denom);
     }
 

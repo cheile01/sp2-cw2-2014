@@ -3,6 +3,7 @@
  */
 package FractionCalculator;
 
+
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -27,12 +28,19 @@ public class FractionCalculatorTest {
 	}
 	
 	@Test
-	public void multiply() {
+	public void multiplyFractions() {
 		// test multiply
-        assert ((new Fraction(3, 1)).equals(new Fraction(1, 2).multiply(new Fraction(3, 5))));
-
+        Fraction a = new Fraction(2,3);
+        Fraction b = a.multiply(new Fraction(3,5));
+        assertEquals("Wrong Answer!", new Fraction(6,15), b);
 	}
 	
+	
+	@Test
+	public void greaterNumenatort() {
+        Fraction a = new Fraction(6,3);
+        assertEquals("Wrong Answer!", new Fraction(2,1), a);
+	}
 	
 
 }
