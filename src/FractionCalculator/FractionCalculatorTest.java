@@ -52,11 +52,65 @@ public class FractionCalculatorTest {
 	
 	@Test
 	public void addFractions() {
-		// test divide
         Fraction a = new Fraction(2,5);
         Fraction b = a.add(new Fraction(2,10));
-        assertEquals("Wrong Answer!", new Fraction(3,10), b);
+        assertEquals("Wrong Answer!", new Fraction(6,10), b);
 	}
+	
+	@Test
+	public void subtractFractions() {
+        Fraction a = new Fraction(4,5);
+        Fraction b = a.sub(new Fraction(1,10));
+        assertEquals("Wrong Answer!", new Fraction(7,10), b);
+	}
+	
+	@Test
+	public void absolute1() {
+        Fraction a = new Fraction(-4,5);
+        Fraction b = a.abs();
+        assertEquals("Wrong Answer!", new Fraction(4,5), b);
+	}
+	@Test
+	public void absolute2() {
+        Fraction a = new Fraction(4,-5);
+        Fraction b = a.abs();
+        assertEquals("Wrong Answer!", new Fraction(4,5), b);
+	}
+	@Test
+	public void absolute3() {
+        Fraction a = new Fraction(-4,-5);
+        Fraction b = a.abs();
+        assertEquals("Wrong Answer!", new Fraction(4,5), b);
+	}
+	
+	@Test
+	public void neg1() {
+        Fraction a = new Fraction(-4,5);
+        Fraction b = a.neg();
+        assertEquals("Wrong Answer!", new Fraction(4,5), b);
+	}
+	@Test
+	public void neg2() {
+        Fraction a = new Fraction(4,-5);
+        Fraction b = a.neg();
+        assertEquals("Wrong Answer!", new Fraction(4,5), b);
+	}
+	@Test
+	public void neg3() {
+        Fraction a = new Fraction(-4,5);
+        Fraction b = a.neg();
+        assertEquals("Wrong Answer!", new Fraction(4,5), b);
+	}
+	@Test
+	public void neg4() {
+        Fraction a = new Fraction(4,5);
+        Fraction b = a.neg();
+        assertEquals("Wrong Answer!", new Fraction(-4,5), b);
+	}
+	
+	
+	
+	
 	
 	
 	

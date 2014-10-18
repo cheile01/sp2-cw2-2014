@@ -82,6 +82,7 @@ public class Fraction {
         return new Fraction(num, denom);
 	}
 
+	//OPTIMISE Refactor to make more efficient.
 	public Fraction add(Fraction frac) {
 		//getting integers for multiplication
 		int a = this.getNumerator();
@@ -90,16 +91,54 @@ public class Fraction {
 		int bb = frac.getDenominator();
 		
 		//multiply to same denominator:		
-
 		a = a * bb;
 		aa = aa * b;
 		b = b * bb;
 
 		//adding numerators		
 		a = a + aa;
-		
 		return new Fraction(a,b);
 	}
+	
+	//OPTIMISE Refactor to make more efficient.
+	public Fraction sub(Fraction frac) {
+		//getting integers for multiplication
+		int a = this.getNumerator();
+		int b = this.getDenominator();
+		int aa = frac.getNumerator();
+		int bb = frac.getDenominator();
+		
+		//multiply to same denominator:		
+		a = a * bb;
+		aa = aa * b;
+		b = b * bb;
+
+		//adding numerators		
+		a = a - aa;
+		return new Fraction(a,b);
+	}
+
+	/*
+	 * creating an absolute.
+	 */
+	public Fraction abs() {
+		int a = this.getNumerator();
+		int b = this.getDenominator();
+		if((a < 0)^(b < 0)){
+			a = a* -1;
+		}
+		return new Fraction(a,b);
+	}
+
+	public Fraction neg() {
+		int a = this.getNumerator();
+		int b = this.getDenominator();
+			a = a* -1;
+		return new Fraction(a,b);
+	}
+	
+	
+	
 	
 	
 }
