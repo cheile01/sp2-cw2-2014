@@ -42,5 +42,25 @@ public class FractionCalculatorTest {
         assertEquals("Wrong Answer!", new Fraction(2,1), a);
 	}
 	
+	@Test
+	public void divideFractions() {
+		// test divide
+        Fraction a = new Fraction(4,10);
+        Fraction b = a.divide(new Fraction(1,2));
+        assertEquals("Wrong Answer!", new Fraction(8,10), b);
+	}
+	
+	@Test
+	public void addFractions() {
+		// test divide
+        Fraction a = new Fraction(1,10);
+        Fraction b = a.add(new Fraction(1,2));
+        assertEquals("Wrong Answer!", new Fraction(6,10), b);
+	}
+	
+	
+	
+	
+	
 
 }
