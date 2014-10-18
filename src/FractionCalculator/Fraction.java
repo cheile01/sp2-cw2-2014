@@ -74,4 +74,32 @@ public class Fraction {
         }
         return a;
     }
+
+	public Fraction divide(Fraction frac) {
+        int num = this.getNumerator() * frac.getDenominator();
+        int denom = this.getDenominator() * frac.getNumerator();
+        
+        return new Fraction(num, denom);
+	}
+
+	public Fraction add(Fraction frac) {
+		//getting integers for multiplication
+		int a = this.getNumerator();
+		int b = this.getDenominator();
+		int aa = frac.getNumerator();
+		int bb = frac.getDenominator();
+		
+		//multiply to same denominator:		
+
+		a = a * bb;
+		aa = aa * b;
+		b = b * bb;
+
+		//adding numerators		
+		a = a + aa;
+		
+		return new Fraction(a,b);
+	}
+	
+	
 }
