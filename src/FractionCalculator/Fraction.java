@@ -2,6 +2,7 @@ package FractionCalculator;
 
 /**
  * Created by keith for the second coursework assignment.
+ * Added on by Christian Heiler (cheile01) to complete assignment.
  */
 public class Fraction {
     private int numerator;
@@ -19,7 +20,9 @@ public class Fraction {
 
     @Override
     public String toString() {
-        return "" + getNumerator() + '/' + getDenominator();
+    	if(this.getDenominator() == 1) return ""+this.getNumerator();
+    	
+        return "" + this.getNumerator() + '/' + this.getDenominator();
     }
 
     public int getNumerator() {

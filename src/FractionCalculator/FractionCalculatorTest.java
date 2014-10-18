@@ -108,6 +108,13 @@ public class FractionCalculatorTest {
         assertEquals("Wrong Answer!", new Fraction(-4,5), b);
 	}
 	
+	@Test
+	public void fullInteger() {
+        Fraction a = new Fraction(6,1);
+        assertEquals("Wrong Answer!", "6", a.toString());
+	}
+	
+	
 	
 	
 	
