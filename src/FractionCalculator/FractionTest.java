@@ -216,7 +216,28 @@ public class FractionTest {
         assertEquals("Wrong Answer!", new FractionImpl(0,1), b);
 	}
 	
-		
+	//TEST evaluate fraction clear
+	@Test
+	public void quitEvaluation1() {
+        Fraction a = new FractionImpl(5,-6);
+        Fraction b = a.evaluate(a, "2/3 quit 1/3");
+        assertEquals("Expected Quit", null, b);
+	}	
+	
+	//TEST evaluate fraction unknown input
+	@Test
+	public void unknownEvaluation1() {
+        Fraction a = new FractionImpl(5,-6);
+        Fraction b = a.evaluate(a, "2/3 adf 1/3");
+        assertEquals("Wrong Answer!", new FractionImpl(0,1), b);
+	}	
+	//TEST evaluate fraction unknown input (no spaces)
+		@Test
+		public void unknownEvaluation2() {
+	        Fraction a = new FractionImpl(5,-6);
+	        Fraction b = a.evaluate(a, "2/3+ 1/3");
+	        assertEquals("Wrong Answer!", new FractionImpl(0,1), b);
+		}
 	
 	
 	

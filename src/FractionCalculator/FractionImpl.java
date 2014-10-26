@@ -202,8 +202,11 @@ public class FractionImpl implements Fraction {
 				result = result.neg();
 			} else if (e.equals("c") || e.equals("clear")){
 				result.clear();
-			}
-			else if(e.matches("-?\\d+")){
+			} else if (e.equals("q") || e.equals("quit")){
+				System.out.println("Thank you for using fraction calculator");
+				System.out.println("The last result was: " + result);
+				return null;
+			} else if(e.matches("-?\\d+")){
 				int i = Integer.parseInt(e);
 				temp = new FractionImpl(i,1);
 				calc = true;
@@ -213,6 +216,12 @@ public class FractionImpl implements Fraction {
 				int b = Integer.parseInt(t[1]);
 				temp = new FractionImpl(a,b);
 				calc = true;
+			} else if (e.equals("")){
+				//Do nothing - just capturing multiple spaces
+			} else {
+				System.out.println("Can't interpret: " + e);
+				result.clear();
+				return result;
 			}
 			if (calc){
 				if(result.getOperator().equals("")){
