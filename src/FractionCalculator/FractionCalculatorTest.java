@@ -139,12 +139,12 @@ public class FractionCalculatorTest {
 	}
 	
 	//TEST evaluate fraction addition
-		@Test
-		public void evaluation3() {
-	        Fraction a = new FractionImpl(0,1);
-	        Fraction b = a.evaluate(a, "2/4 + 1/2");
-	        assertEquals("Wrong Answer!", new FractionImpl(1,1), b);
-		}
+	@Test
+	public void evaluation3() {
+        Fraction a = new FractionImpl(0,1);
+        Fraction b = a.evaluate(a, "2/4 + 1/3");
+        assertEquals("Wrong Answer!", new FractionImpl(5,6), b);
+	}
 	
 	
 	

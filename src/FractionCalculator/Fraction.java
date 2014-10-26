@@ -41,4 +41,5 @@ public interface Fraction {
 	
 	public Fraction evaluate(Fraction frac, String s);
 
+
 }

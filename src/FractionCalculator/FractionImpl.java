@@ -7,7 +7,7 @@ package FractionCalculator;
 public class FractionImpl implements Fraction {
     private int numerator;
     private int denominator;
-    private String operator;
+    private String operator = "";
 
     public FractionImpl(int num, int denom) {
         if (denom == 0) {
@@ -183,33 +183,35 @@ public class FractionImpl implements Fraction {
 	@Override
 	public Fraction evaluate(Fraction frac, String s) {
 		Fraction result = new FractionImpl(0,1);
+		Fraction temp = new FractionImpl(0,1);
+		
 		String[] element = s.split(" ");
 		for(String e : element){
 			if(e.matches("-?\\d+")){
 				int i = Integer.parseInt(e);
-				result = new FractionImpl(i,1);
+				temp = new FractionImpl(i,1);
 			} 
 			else if (e.matches("-?\\d+\\/-?\\d+")){
 				String[] t = e.split("/");
 				int a = Integer.parseInt(t[0]);
 				int b = Integer.parseInt(t[1]);
-				result = new FractionImpl(a,b);
+				temp = new FractionImpl(a,b);
 			}
-			else if (e.equals("+")){
+			if(result.getOperator().equals("")){
+				result = temp;
+			} else if(result.getOperator().equals("+"))  {
+				result = result.add(temp);
+				result.setOperator("");
+			}
+			
+			
+			
+			if (e.equals("+")){
 				result.setOperator("+");
 			}
-			
-			
-			
 		}
-
-		
-		
 		return result;
 	}
-	
-	
-	
 	
 	
 }
