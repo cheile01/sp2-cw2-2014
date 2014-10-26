@@ -182,24 +182,24 @@ public class FractionImpl implements Fraction {
 
 	@Override
 	public Fraction evaluate(Fraction frac, String s) {
-		Fraction result = new FractionImpl(0,1);
+		Fraction result = frac;
 		Fraction temp = new FractionImpl(0,1);
 		boolean calc = false;
 		String[] element = s.split(" ");
 		for(String e : element){
+			e = e.toLowerCase();
 			if (e.equals("+")){
 				result.setOperator("+");
-
 			} else if (e.equals("-")){
 				result.setOperator("-");
-
 			} else if (e.equals("*")){
 				result.setOperator("*");
-
 			} else if (e.equals("/")){
 				result.setOperator("/");
-
-			} else if(e.matches("-?\\d+")){
+			} else if (e.equals("abs") || e.equals("a")){
+				result = result.abs();
+			}
+			else if(e.matches("-?\\d+")){
 				int i = Integer.parseInt(e);
 				temp = new FractionImpl(i,1);
 				calc = true;

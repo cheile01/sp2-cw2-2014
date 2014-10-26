@@ -178,6 +178,21 @@ public class FractionCalculatorTest {
         assertEquals("Wrong Answer!", new FractionImpl(11,20), b);
 	}
 	
+	//TEST evaluate fraction absolute
+	@Test
+	public void absoluteEvaluation1() {
+        Fraction a = new FractionImpl(-5,7);
+        Fraction b = a.evaluate(a, "abs");
+        assertEquals("Wrong Answer!", new FractionImpl(5,7), b);
+	}
+	//TEST evaluate fraction absolute
+	@Test
+	public void absoluteEvaluation2() {
+        Fraction a = new FractionImpl(5,-6);
+        Fraction b = a.evaluate(a, "-2/5 A");
+        assertEquals("Wrong Answer!", new FractionImpl(2,5), b);
+	}
+	
 		
 	
 	
