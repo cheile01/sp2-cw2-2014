@@ -187,7 +187,6 @@ public class FractionImpl implements Fraction {
 		boolean calc = false;
 		String[] element = s.split(" ");
 		for(String e : element){
-			System.out.println("Evaluating: "+ e);
 			if (e.equals("+")){
 				result.setOperator("+");
 
@@ -211,7 +210,6 @@ public class FractionImpl implements Fraction {
 				temp = new FractionImpl(a,b);
 				calc = true;
 			}
-			System.out.print(result + " " + result.getOperator() +" "+ temp + " = " );
 			if (calc){
 				if(result.getOperator().equals("")){
 					result = temp;
@@ -231,13 +229,12 @@ public class FractionImpl implements Fraction {
 				temp = new FractionImpl(0,1);
 				calc = false;
 			}
-			
-			System.out.println(result);
+
 			
 			
 			
 		}
-		System.out.println("EOC");
+
 		return result;
 	}
 	
