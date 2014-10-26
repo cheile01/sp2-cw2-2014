@@ -1,147 +1,44 @@
 package FractionCalculator;
 
-/**
- * Created by keith for the second coursework assignment.
- * Added on by Christian Heiler (cheile01) to complete assignment.
- */
-public class Fraction {
-    private int numerator;
-    private int denominator;
+public interface Fraction {
 
-    public Fraction(int num, int denom) {
-        if (denom == 0) {
-            System.out.println("Invalid fraction with denominator 0"); // this should use exceptions
-            return;
-        }
-        int gcd = myGcd(num, denom);
-        setNumerator(num / gcd);
-        setDenominator(denom / gcd);
-    }
+	public abstract String toString();
 
-    @Override
-    public String toString() {
-    	if(this.getDenominator() == 1) return ""+this.getNumerator();
-    	
-        return "" + this.getNumerator() + '/' + this.getDenominator();
-    }
+	public abstract int getNumerator();
 
-    public int getNumerator() {
-        return numerator;
-    }
+	public abstract void setNumerator(int num);
 
-    public void setNumerator(int num) {
-        numerator = num;
-    }
+	public abstract int getDenominator();
 
-    public int getDenominator() {
-        return denominator;
-    }
+	public abstract void setDenominator(int num);
 
-    public void setDenominator(int num) {
-        denominator = num;
-    }
+	public abstract String getOperator();
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+	public abstract void setOperator(String op);
 
-        Fraction fraction = (Fraction) o;
+	public abstract boolean equals(Object o);
 
-        if (getDenominator() != fraction.getDenominator()) return false;
-        if (getNumerator() != fraction.getNumerator()) return false;
+	public abstract int hashCode();
 
-        return true;
-    }
+	public abstract Fraction multiply(Fraction frac);
 
-    @Override
-    public int hashCode() {
-        int result = numerator;
-        result = 31 * result + denominator;
-        return result;
-    }
+	public abstract Fraction divide(Fraction frac);
 
-    public Fraction multiply(Fraction frac) {
 
-        int num = this.getNumerator() * frac.getNumerator();
-        int denom = this.getDenominator() * frac.getDenominator();
-        
-        return new Fraction(num, denom);
-    }
+	public abstract Fraction add(Fraction frac);
 
-    private int myGcd(int a, int b) {
-        while (b != 0) {
-            int t = b;
-            b = a % b;
-            a = t;
-        }
-        return a;
-    }
 
-	public Fraction divide(Fraction frac) {
-        int num = this.getNumerator() * frac.getDenominator();
-        int denom = this.getDenominator() * frac.getNumerator();
-        
-        return new Fraction(num, denom);
-	}
-
-	//OPTIMISE Refactor to make more efficient.
-	public Fraction add(Fraction frac) {
-		//getting integers for multiplication
-		int a = this.getNumerator();
-		int b = this.getDenominator();
-		int aa = frac.getNumerator();
-		int bb = frac.getDenominator();
-		
-		//multiply to same denominator:		
-		a = a * bb;
-		aa = aa * b;
-		b = b * bb;
-
-		//adding numerators		
-		a = a + aa;
-		return new Fraction(a,b);
-	}
-	
-	//OPTIMISE Refactor to make more efficient.
-	public Fraction sub(Fraction frac) {
-		//getting integers for multiplication
-		int a = this.getNumerator();
-		int b = this.getDenominator();
-		int aa = frac.getNumerator();
-		int bb = frac.getDenominator();
-		
-		//multiply to same denominator:		
-		a = a * bb;
-		aa = aa * b;
-		b = b * bb;
-
-		//adding numerators		
-		a = a - aa;
-		return new Fraction(a,b);
-	}
+	public abstract Fraction sub(Fraction frac);
 
 	/*
 	 * creating an absolute.
 	 */
-	public Fraction abs() {
-		int a = this.getNumerator();
-		int b = this.getDenominator();
-		if((a < 0)^(b < 0)){
-			a = a* -1;
-		}
-		return new Fraction(a,b);
-	}
+	public abstract Fraction abs();
 
-	public Fraction neg() {
-		int a = this.getNumerator();
-		int b = this.getDenominator();
-			a = a* -1;
-		return new Fraction(a,b);
-	}
+	public abstract Fraction neg();
+
+	public abstract void clear();
 	
-	
-	
-	
-	
+	public Fraction evaluate(Fraction frac, String s);
+
 }
