@@ -146,6 +146,14 @@ public class FractionCalculatorTest {
         assertEquals("Wrong Answer!", new FractionImpl(5,6), b);
 	}
 	
+	//TEST evaluate fraction substraction
+	@Test
+	public void evaluation4() {
+        Fraction a = new FractionImpl(0,1);
+        Fraction b = a.evaluate(a, "6/7 - 1/3");
+        assertEquals("Wrong Answer!", new FractionImpl(11,21), b);
+	}
+	
 	
 	
 		

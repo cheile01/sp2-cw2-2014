@@ -202,12 +202,17 @@ public class FractionImpl implements Fraction {
 			} else if(result.getOperator().equals("+"))  {
 				result = result.add(temp);
 				result.setOperator("");
+			} else if(result.getOperator().equals("-"))  {
+				result = result.sub(temp);
+				result.setOperator("");
 			}
 			
 			
 			
 			if (e.equals("+")){
 				result.setOperator("+");
+			} else if (e.equals("-")){
+				result.setOperator("-");
 			}
 		}
 		return result;
