@@ -184,37 +184,60 @@ public class FractionImpl implements Fraction {
 	public Fraction evaluate(Fraction frac, String s) {
 		Fraction result = new FractionImpl(0,1);
 		Fraction temp = new FractionImpl(0,1);
-		
+		boolean calc = false;
 		String[] element = s.split(" ");
 		for(String e : element){
-			if(e.matches("-?\\d+")){
+			System.out.println("Evaluating: "+ e);
+			if (e.equals("+")){
+				result.setOperator("+");
+
+			} else if (e.equals("-")){
+				result.setOperator("-");
+
+			} else if (e.equals("*")){
+				result.setOperator("*");
+
+			} else if (e.equals("/")){
+				result.setOperator("/");
+
+			} else if(e.matches("-?\\d+")){
 				int i = Integer.parseInt(e);
 				temp = new FractionImpl(i,1);
-			} 
-			else if (e.matches("-?\\d+\\/-?\\d+")){
+				calc = true;
+			} else if (e.matches("-?\\d+\\/-?\\d+")){
 				String[] t = e.split("/");
 				int a = Integer.parseInt(t[0]);
 				int b = Integer.parseInt(t[1]);
 				temp = new FractionImpl(a,b);
+				calc = true;
 			}
-			if(result.getOperator().equals("")){
-				result = temp;
-			} else if(result.getOperator().equals("+"))  {
-				result = result.add(temp);
-				result.setOperator("");
-			} else if(result.getOperator().equals("-"))  {
-				result = result.sub(temp);
-				result.setOperator("");
+			System.out.print(result + " " + result.getOperator() +" "+ temp + " = " );
+			if (calc){
+				if(result.getOperator().equals("")){
+					result = temp;
+				} else if(result.getOperator().equals("+"))  {
+					result = result.add(temp);
+					result.setOperator("");
+				} else if(result.getOperator().equals("-"))  {
+					result = result.sub(temp);
+					result.setOperator("");
+				} else if(result.getOperator().equals("*"))  {
+					result = result.multiply(temp);
+					result.setOperator("");
+				} else if(result.getOperator().equals("/"))  {
+					result = result.divide(temp);
+					result.setOperator("");
+				}
+				temp = new FractionImpl(0,1);
+				calc = false;
 			}
+			
+			System.out.println(result);
 			
 			
 			
-			if (e.equals("+")){
-				result.setOperator("+");
-			} else if (e.equals("-")){
-				result.setOperator("-");
-			}
 		}
+		System.out.println("EOC");
 		return result;
 	}
 	

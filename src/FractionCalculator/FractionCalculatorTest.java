@@ -146,15 +146,37 @@ public class FractionCalculatorTest {
         assertEquals("Wrong Answer!", new FractionImpl(5,6), b);
 	}
 	
-	//TEST evaluate fraction substraction
+	//TEST evaluate fraction subtraction
 	@Test
 	public void evaluation4() {
         Fraction a = new FractionImpl(0,1);
-        Fraction b = a.evaluate(a, "6/7 - 1/3");
-        assertEquals("Wrong Answer!", new FractionImpl(11,21), b);
+        Fraction b = a.evaluate(a, "2/3 - 1/3");
+        assertEquals("Wrong Answer!", new FractionImpl(1,3), b);
 	}
 	
+	//TEST evaluate fraction multiplication
+	@Test
+	public void evaluation5() {
+        Fraction a = new FractionImpl(0,1);
+        Fraction b = a.evaluate(a, "1/2 * 3/5");
+        assertEquals("Wrong Answer!", new FractionImpl(3,10), b);
+	}
 	
+	//TEST evaluate fraction multiplication
+	@Test
+	public void evaluation6() {
+        Fraction a = new FractionImpl(0,1);
+        Fraction b = a.evaluate(a, "1/4 / 1/3");
+        assertEquals("Wrong Answer!", new FractionImpl(3,4), b);
+	}
+	
+	//TEST evaluate fraction long cast
+	@Test
+	public void evaluationLong() {
+        Fraction a = new FractionImpl(0,1);
+        Fraction b = a.evaluate(a, "1/3 + 1/4 * 1/2 - 1/5 / 1/6");
+        assertEquals("Wrong Answer!", new FractionImpl(11,20), b);
+	}
 	
 		
 	
