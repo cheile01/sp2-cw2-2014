@@ -13,7 +13,7 @@ import org.junit.Test;
  * @author christianheiler
  *
  */
-public class FractionCalculatorTest {
+public class FractionTest {
 
 	/**
 	 * @throws java.lang.Exception
@@ -191,6 +191,29 @@ public class FractionCalculatorTest {
         Fraction a = new FractionImpl(5,-6);
         Fraction b = a.evaluate(a, "-2/5 A");
         assertEquals("Wrong Answer!", new FractionImpl(2,5), b);
+	}
+	
+	//TEST evaluate fraction negate
+	@Test
+	public void negateEvaluation1() {
+        Fraction a = new FractionImpl(5,-6);
+        Fraction b = a.evaluate(a, "neg");
+        assertEquals("Wrong Answer!", new FractionImpl(5,6), b);
+	}
+	
+	//TEST evaluate fraction negate
+	@Test
+	public void negateEvaluation2() {
+        Fraction a = new FractionImpl(5,-6);
+        Fraction b = a.evaluate(a, " 2/3 n");
+        assertEquals("Wrong Answer!", new FractionImpl(-2,3), b);
+	}
+	//TEST evaluate fraction clear
+	@Test
+	public void clearEvaluation1() {
+        Fraction a = new FractionImpl(5,-6);
+        Fraction b = a.evaluate(a, " 2/3 c");
+        assertEquals("Wrong Answer!", new FractionImpl(0,1), b);
 	}
 	
 		

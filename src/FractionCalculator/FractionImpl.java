@@ -198,6 +198,10 @@ public class FractionImpl implements Fraction {
 				result.setOperator("/");
 			} else if (e.equals("abs") || e.equals("a")){
 				result = result.abs();
+			} else if (e.equals("neg") || e.equals("n")){
+				result = result.neg();
+			} else if (e.equals("c") || e.equals("clear")){
+				result.clear();
 			}
 			else if(e.matches("-?\\d+")){
 				int i = Integer.parseInt(e);
@@ -230,9 +234,6 @@ public class FractionImpl implements Fraction {
 				calc = false;
 			}
 
-			
-			
-			
 		}
 
 		return result;
