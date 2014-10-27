@@ -182,6 +182,10 @@ public class FractionImpl implements Fraction {
 
 	@Override
 	public Fraction evaluate(Fraction frac, String s) {
+		if (s.toLowerCase().equals("help")){
+			help();
+			return frac;
+		}
 		Fraction result = frac;
 		Fraction temp = new FractionImpl(0,1);
 		boolean calc = false;
@@ -246,6 +250,15 @@ public class FractionImpl implements Fraction {
 		}
 
 		return result;
+	}
+	
+	private void help(){
+		System.out.println();
+		System.out.println("Christian Heiler's Fraction calculator help");
+		System.out.println("Mathematical signs: \t Multiply: + \t Divide: / \t Add: + \t Subtract: - ");
+		System.out.println("Operators: \t\t Absolute value: abs | a \t Negate: neg | n \t Clear: clear | c ");
+		System.out.println("System: \t\t Help: help (this helpfile) \t End: quit | q ");
+		System.out.println();
 	}
 	
 	

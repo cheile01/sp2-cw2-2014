@@ -232,14 +232,21 @@ public class FractionTest {
         assertEquals("Wrong Answer!", new FractionImpl(0,1), b);
 	}	
 	//TEST evaluate fraction unknown input (no spaces)
-		@Test
-		public void unknownEvaluation2() {
-	        Fraction a = new FractionImpl(5,-6);
-	        Fraction b = a.evaluate(a, "2/3+ 1/3");
-	        assertEquals("Wrong Answer!", new FractionImpl(0,1), b);
-		}
+	@Test
+	public void unknownEvaluation2() {
+        Fraction a = new FractionImpl(5,-6);
+        Fraction b = a.evaluate(a, "2/3+ 1/3");
+        assertEquals("Wrong Answer!", new FractionImpl(0,1), b);
+	}
+
 	
-	
+	//TEST evaluate fraction unknown input (no spaces)
+	@Test
+	public void help() {
+        Fraction a = new FractionImpl(5,-6);
+        Fraction b = a.evaluate(a, "help");
+        assertEquals("Wrong Answer!", a, b);
+	}
 	
 	
 	
