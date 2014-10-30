@@ -11,13 +11,6 @@ import java.util.Scanner;
 public class FractionCalculator {
 
 	/**
-	 * 
-	 */
-	public FractionCalculator() {
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -34,7 +27,7 @@ public class FractionCalculator {
 				
 			}
 		}while(calculation != null);
-
+		in.close();
 	}
 	
 	private static void welcomeMessage(){
