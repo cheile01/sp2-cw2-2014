@@ -20,7 +20,10 @@ public class FractionImpl implements Fraction {
     }
 
 
-
+    /*
+     * (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
 	@Override
     public String toString() {
     	if(this.getDenominator() == 1) return ""+this.getNumerator();
@@ -144,7 +147,7 @@ public class FractionImpl implements Fraction {
 		aa = aa * b;
 		b = b * bb;
 
-		//adding numerators		
+		//subtracting numerators		
 		a = a - aa;
 		return new FractionImpl(a,b);
 	}

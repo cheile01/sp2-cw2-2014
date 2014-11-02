@@ -21,11 +21,7 @@ public class FractionCalculator {
 		do{
 			System.out.print(calculation.toString() + " ? ");
 			temp = in.nextLine();
-			try {
 				calculation = calculation.evaluate(calculation, temp);
-			} finally {
-				
-			}
 		}while(calculation != null);
 		in.close();
 	}
