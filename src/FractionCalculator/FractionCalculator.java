@@ -5,7 +5,7 @@ package FractionCalculator;
 import java.util.Scanner;
 
 /**
- * @author christianheiler
+ * @author christianheiler (cheile01)
  *
  */
 public class FractionCalculator {

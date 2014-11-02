@@ -24,15 +24,10 @@ public interface Fraction {
 
 	public abstract Fraction divide(Fraction frac);
 
-
 	public abstract Fraction add(Fraction frac);
-
 
 	public abstract Fraction sub(Fraction frac);
 
-	/*
-	 * creating an absolute.
-	 */
 	public abstract Fraction abs();
 
 	public abstract Fraction neg();

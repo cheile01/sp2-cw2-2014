@@ -114,42 +114,25 @@ public class FractionImpl implements Fraction {
         return new FractionImpl(num, denom);
 	}
 
-	//OPTIMISE Refactor to make more efficient.
+
 	@Override
 	public Fraction add(Fraction frac) {
-		//getting integers for multiplication
-		int a = this.getNumerator();
-		int b = this.getDenominator();
-		int aa = frac.getNumerator();
-		int bb = frac.getDenominator();
+		//initialising variables
+		int a;
 		
-		//multiply to same denominator:		
-		a = a * bb;
-		aa = aa * b;
-		b = b * bb;
-
 		//adding numerators		
-		a = a + aa;
-		return new FractionImpl(a,b);
+		a = (this.getNumerator() * frac.getDenominator()) + (frac.getNumerator() * this.getDenominator());
+		return new FractionImpl(a,(this.getDenominator() * frac.getDenominator()));
 	}
 	
-	//OPTIMISE Refactor to make more efficient.
 	@Override
 	public Fraction sub(Fraction frac) {
-		//getting integers for multiplication
-		int a = this.getNumerator();
-		int b = this.getDenominator();
-		int aa = frac.getNumerator();
-		int bb = frac.getDenominator();
+		//initialising variables
+		int a;
 		
-		//multiply to same denominator:		
-		a = a * bb;
-		aa = aa * b;
-		b = b * bb;
-
 		//subtracting numerators		
-		a = a - aa;
-		return new FractionImpl(a,b);
+		a = (this.getNumerator() * frac.getDenominator()) - (frac.getNumerator() * this.getDenominator());
+		return new FractionImpl(a,(this.getDenominator() * frac.getDenominator()));
 	}
 
 	/*
