@@ -213,6 +213,8 @@ public class FractionImpl implements Fraction {
 				result.clear();
 				return result;
 			}
+			
+			//only execute calculation if needed.
 			if (calc){
 				if(result.getOperator().equals("")){
 					result = temp;
